@@ -1,0 +1,23 @@
+{
+  "name": "Playwright Dev Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "playwright-node",
+  "workspaceFolder": "/src",
+  "forwardPorts": [6080],
+  "features": {
+    "desktop-lite": {
+      "webPort": 6080
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "njpwerner.autodocstring",
+        "esbenp.prettier-vscode",
+        "the0807.uv-toolkit"
+      ]
+    }
+  }
+}

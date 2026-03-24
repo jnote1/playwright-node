@@ -1,0 +1,16 @@
+services:
+  playwright-node:
+    build:
+      context: .
+      dockerfile: Dockerfile.novnc
+    # 편집 필요: 호스트의 src 경로를 지정하세요
+    # volumes:
+    #   - /home/user/playwright-node/src:/src
+    environment:
+      - GTK_IM_MODULE=ibus
+      - QT_IM_MODULE=ibus
+      - XMODIFIERS=@im=ibus
+      - IME_DEBUG=1
+      - REQUIRE_HANGUL=1
+    ipc: host       # 브라우저 메모리 공유 (필수)
+    restart: unless-stopped

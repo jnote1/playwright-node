@@ -1,0 +1,38 @@
+FROM mcr.microsoft.com/playwright/python:v1.58.0-noble
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 1. 패키지 설치
+# noVNC desktop stack + Korean input (ibus-hangul)
+RUN apt-get update && apt-get install -y \
+    locales \
+    fonts-nanum \
+    fonts-noto-cjk \
+    ibus-hangul \
+    dbus-x11 \
+    im-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# 2. 로케일 생성
+RUN locale-gen ko_KR.UTF-8
+
+# 3. 환경 변수 설정
+ENV LANG=ko_KR.UTF-8 \
+    LANGUAGE=ko_KR.UTF-8 \
+    LC_ALL=ko_KR.UTF-8 \
+    GTK_IM_MODULE=ibus \
+    QT_IM_MODULE=ibus \
+    XMODIFIERS="@im=ibus"
+
+# 4. Python 라이브러리 설치
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir playwright pytest pytest-playwright pytest-asyncio uv ruff httpx loguru
+
+# 5. 엔트리포인트 스크립트 복사 및 권한 부여
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# 6. 실행 설정
+ENTRYPOINT ["/entrypoint.sh"]
+# Compose에서 command를 덮어쓰지 않으면 이 명령어가 exec "$@"로 전달됩니다.
+CMD ["tail", "-f", "/dev/null"]

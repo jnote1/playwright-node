@@ -1,0 +1,17 @@
+# Keep the src directory itself, but ignore everything inside it.
+/src/**
+!/src/
+!/src/test_playwright_async.py
+
+# Track devcontainer settings
+!.devcontainer/
+!.devcontainer/**
+
+# Keep personal compose override local
+.devcontainer/docker-compose.override.yml
+
+# Common local noise
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
