@@ -19,13 +19,13 @@ jobs:
       
       - name: Build Docker image
         run: |
-          docker-compose \
+          docker compose \
             -f .devcontainer/docker-compose.yml \
             build
       
       - name: Run CI test
         run: |
-          docker-compose \
+          docker compose \
             -f .devcontainer/docker-compose.yml \
             run --rm playwright-node \
             pytest -v src/test_playwright_ci.py
@@ -33,6 +33,6 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
-          docker-compose \
+          docker compose \
             -f .devcontainer/docker-compose.yml \
             down
