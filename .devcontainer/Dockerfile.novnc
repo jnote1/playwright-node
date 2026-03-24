@@ -26,7 +26,7 @@ ENV LANG=ko_KR.UTF-8 \
 
 # 4. Python 라이브러리 설치
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir pytest-playwright pytest-playwright-asyncio uv ruff httpx loguru
+    pip install --no-cache-dir pytest-playwright-asyncio uv ruff httpx loguru
 
 # 4-1. Playwright 브라우저 설치 (CI/런타임에서 재설치 방지)
 RUN python -m playwright install --with-deps chromium

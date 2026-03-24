@@ -1,9 +1,9 @@
-# Python Playwright + noVNC Devcontainer with VScode
+# Python Playwright async + noVNC Devcontainer with VScode
 
-VScode로 Python Playwright 작업을 위한 Dev Container 설정 저장소입니다.
+VScode로 Python Playwright async 작업을 위한 Dev Container 설정 저장소입니다.
 목표는 다음 3가지를 한 번에 제공하는 것입니다.
 
-- Playwright Python 기반 브라우저 자동화 환경
+- Playwright Python async 기반 브라우저 자동화 환경
 - noVNC를 통한 GUI 접속 가능한 데스크톱 환경
 - Chromium에서 ibus-hangul 기반 한글 입력이 가능한 환경
 
@@ -70,7 +70,7 @@ VSCode 터미널 또는 noVNC 데스크톱에서:
 
 1. 기본 async 테스트 실행:
    ```bash
-   pytest -s
+   pytest -s /src/test_playwright_async.py
    ```
 해당 테스트는 `async_playwright()`를 사용해 Chromium을 비동기로 실행하고,
 `headless=False`로 브라우저를 띄운 뒤 `https://playwright.dev/python/`에 접속합니다.

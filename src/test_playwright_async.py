@@ -2,7 +2,7 @@ import pytest
 from playwright.async_api import async_playwright
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio(loop_scope="session")
 async def test_chromium_async_basic_navigation() -> None:
     """Smoke test: open Chromium asynchronously and verify page title."""
     async with async_playwright() as p:
