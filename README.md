@@ -37,7 +37,7 @@ VScode로 Python Playwright 작업을 위한 Dev Container 설정 저장소입�
 
 1. 이 저장소를 서버의 원하는 위치에 클론:
    ```bash
-   git clone <repository-url> /path/to/playwright-node
+   git clone https://github.com/jnote1/playwright-node /path/to/playwright-node
    cd /path/to/playwright-node
    ```
 
