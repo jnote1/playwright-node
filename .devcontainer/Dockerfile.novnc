@@ -26,7 +26,10 @@ ENV LANG=ko_KR.UTF-8 \
 
 # 4. Python 라이브러리 설치
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir playwright pytest pytest-playwright pytest-asyncio uv ruff httpx loguru
+    pip install --no-cache-dir pytest-playwright pytest-playwright-asyncio uv ruff httpx loguru
+
+# 4-1. Playwright 브라우저 설치 (CI/런타임에서 재설치 방지)
+RUN python -m playwright install --with-deps chromium
 
 # 5. 엔트리포인트 스크립트 복사 및 권한 부여
 COPY entrypoint.sh /entrypoint.sh
