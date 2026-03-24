@@ -2,6 +2,7 @@
 /src/**
 !/src/
 !/src/test_playwright_async.py
+!/src/test_playwright_ci.py
 
 # Track devcontainer settings
 !.devcontainer/
