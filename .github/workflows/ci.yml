@@ -28,7 +28,7 @@ jobs:
           docker compose \
             -f .devcontainer/docker-compose.yml \
             run --rm playwright-node \
-            pytest -v src/test_playwright_ci.py
+            pytest
       
       - name: Cleanup
         if: always()
