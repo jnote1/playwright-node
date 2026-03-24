@@ -28,3 +28,6 @@ display_num="${DISPLAY#:}"
 if [ -n "$display_num" ] && [ -S "/tmp/.X11-unix/X${display_num}" ]; then
     ibus engine hangul || true
 fi
+
+# 전달된 명령어 실행
+exec "$@"
